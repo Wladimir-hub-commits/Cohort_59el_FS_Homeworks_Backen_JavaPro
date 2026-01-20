@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
@@ -21,12 +22,12 @@ import java.util.List;
 @RequestMapping("/api/cars")
 public class CarController {
 
-    private final List<Car> allCars =  List.of(
+    private final List<Car> allCars =  new ArrayList<>(List.of(
             new Car(1L,"BMW", "X5", 2020, 3000, 35000, "AVAILABLE"),
             new Car(2L,"AUDI", "A6", 2025, 15000, 55000, "SOLD"),
             new Car(3L, "BMW", "M3", 2021, 8000, 72000, "Sold"),
             new Car(4L,"AUDI", "Q7", 2024, 35000, 45000, "AVAILABLE")
-    );
+    ));
 
     @GetMapping
     public List<Car> getAllCars()
